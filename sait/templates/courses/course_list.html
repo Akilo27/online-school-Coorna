@@ -1,0 +1,16 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+<div class="course-container">
+    {% for course in courses %}
+        <div class="course-block">
+            <img src="{{ course.image.url }}" class="course-image" width="200" height="200">
+            <a href="{% url 'enroll' course.id %}" class="course-title btn btn-success rounded-pill px-3">{{ course.title }}</a>
+
+        </div>
+    {% endfor %}
+</div>
+
+
+{% endblock %}

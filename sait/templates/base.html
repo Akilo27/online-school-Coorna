@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>{% block title %}Мой сайт{% endblock %}</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css">
+</head>
+
+<body>
+
+<style>
+    body {
+        background: linear-gradient(to bottom, #D9F2B1, #B9F2B1);
+        margin: 0;
+    }
+
+    header {
+        background: linear-gradient(to right, #DEDFB3, #B1F2B8);
+        box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.2);
+    }
+
+    main {
+        margin-left: 100px;
+        margin-right: 100px;
+        background-color: #BAF4A8;
+        box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.2);
+        padding: 20px;
+        transition: box-shadow 0.3s ease-in-out;
+    }
+
+    main:hover {
+        box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.3);
+    }
+
+    footer {
+        background: linear-gradient(to right, #B1F2C7, #B1DCF2);
+        box-shadow: 0px -2px 5px rgba(0, 0, 0, 0.2);
+    }
+
+    .course-container {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: space-between;
+    }
+
+    .course-block {
+        border: 1px solid black;
+        width: 30%;
+        height: 250px;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        margin: 10px;
+        background-color: #E9F8CB;
+        box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.2);
+        transition: box-shadow 0.3s ease-in-out;
+    }
+
+    .course-block:hover {
+        box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.3);
+    }
+
+    .course-image:hover {
+        box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.3);
+    }
+
+    .course-image {
+        max-width: 150px;
+        max-height: 100px;
+    }
+
+    .course-title {
+        text-align: center;
+        margin-top: 10px;
+    }
+
+    .wrapper {
+  position: relative;
+}
+
+.toggle-button {
+  width: 40px;
+  height: 40px;
+  background-color: blue;
+  border-radius: 50%;
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  cursor: pointer;
+}
+
+.dropdown {
+  display: none;
+  position: absolute;
+  top: 30px;
+  right: 0;
+  background-color: white;
+  border: 1px solid black;
+}
+
+.dropdown-button {
+  display: block;
+  width: 100%;
+  padding: 10px;
+  text-align: left;
+  border: none;
+  background-color: white;
+  cursor: pointer;
+}
+
+.dropdown-button:hover {
+  background-color: lightgray;
+}
+
+</style>
+
+
+
+    <div class="wrapper">
+      <div class="toggle-button"></div>
+      <div class="dropdown">
+        <a href='/profiles/' class="dropdown-button">Профиль</a>
+        <a class="dropdown-button">Кнопка 2</a>
+        <a href="relog/logout/" class="dropdown-button">Выйти</a>
+      </div>
+    </div>
+
+
+
+
+    <header>
+        <div class="container">
+            <header class="d-flex flex-wrap justify-content-center py-3 mb-4 border-bottom">
+                  <a href="/" class="d-flex align-items-center mb-3 mb-md-0 me-md-auto link-body-emphasis text-decoration-none">
+                        <span class="fs-4" style="padding: 15px;">Coorna</span>
+                  </a>
+            </header>
+        </div>
+    </header>
+
+    <main>
+        {% block content %}
+
+        {% endblock %}
+    </main>
+
+    <footer class="pt-5 my-5 text-body-secondary border-top">
+        Created by the Akilo · © 2023
+    </footer>
+
+
+<script>
+    var dropdown = document.querySelector('.dropdown');
+    var toggleButton = document.querySelector('.toggle-button');
+    var wrapper = document.querySelector('.wrapper');
+
+    toggleButton.addEventListener('click', function() {
+      dropdown.style.display = 'block';
+    });
+
+    wrapper.addEventListener('mouseleave', function() {
+      dropdown.style.display = 'none';
+    });
+
+</script>
+
+</body>
+</html>

@@ -1,0 +1,21 @@
+{% extends 'base.html' %}
+{% block content %}
+
+
+    <p>Привет {{ user_info.user }}</p>
+    <img src="{{ user_info.avatar.url }}" width="200" height="200" style="border-radius: 50%;">
+    <p>статус - {{ user_info.status }}</p>
+
+    {% for clan in user_info.clans.all %}
+        <p>{{ clan.title }}</p>
+    {% empty %}
+        <p>Нет информации о кланах.</p>
+    {% endfor %}
+
+    {% for course in user_info.courses.all %}
+        <p>{{ course.title }}</p>
+    {% empty %}
+        <p>Нет информации о курсах.</p>
+    {% endfor %}
+
+{% endblock %}

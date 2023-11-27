@@ -1,0 +1,43 @@
+{% extends 'base.html' %}
+{% block content %}
+
+<style>
+    .video-block {
+        background: linear-gradient(#8cd9b0, #3b704f);
+        padding: 10px;
+        margin: 10px 0;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        box-shadow: 0 2px 6px rgba(0, 0, 0, 0.3);
+    }
+
+    .video-block video {
+        width: 100%;
+        max-height: 400px;
+    }
+
+    .content-block {
+        background: linear-gradient(#8cd9b0, #3b704f);
+        padding: 10px;
+        margin: 10px 0;
+        text-align: center;
+        width: 90%;
+        margin: 0 auto;
+        box-shadow: 0 2px 6px rgba(0, 0, 0, 0.3);
+    }
+</style>
+
+<div class="content-block">
+    <p>{{ lessons.title }}</p>
+    <p>{{ lessons.content }}</p>
+</div>
+
+<div class="video-block">
+    <video src="{{ lessons.video_file.url }}" controls></video>
+</div>
+
+
+
+
+{% endblock %}
